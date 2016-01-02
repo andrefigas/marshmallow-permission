@@ -1,12 +1,9 @@
 package com.devfigas.permission;
 
 import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 
-
-/**
- * Created by Andre Figas on 21/12/2015.
- */
 public abstract class MarshmallowActivity  extends AppCompatActivity {
 
     MarshmallowPermission p;
@@ -14,7 +11,15 @@ public abstract class MarshmallowActivity  extends AppCompatActivity {
 
     public void setCallbackPermission(MarshmallowPermission p){
        this.p = p;
-        p.getPermission();
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+
+            p.getPermission();
+        }
+        else{
+
+            p.granted();
+        }
+
     }
 
     public void onRequestPermissionsResult (int requestCode, String[] permissions, int[] grantResults){
