@@ -23,15 +23,16 @@ public class MainActivity extends MarshmallowActivity {
 
         //single permission not required (the application does work without this permission)
         //required is the boolean parameter in constructor
-         setCallbackPermission(new MarshmallowPermission(this,Manifest.permission.WRITE_CALENDAR,CODE_CALENDAR,false,"access to calendar is important because ..."){
+         
+         setCallbackPermission(new MarshmallowPermission(this,Manifest.permission.WRITE_CALENDAR,CODE_CALENDAR,false,"access to  calendar is important because ..."){
 
            @Override
-           public void granted() {
+           public void granted(String permission) {
                 // method to execute when permission is allowed
            }
 
            @Override
-           public void denied(){
+           public void denied(String permission){
                // method to execute when permission is denied (optional)
            }
        });
@@ -41,8 +42,15 @@ public class MainActivity extends MarshmallowActivity {
                 Manifest.permission.ACCESS_FINE_LOCATION},
                 CODE_CONTACTS_AND_LOCATION, true, ""access to contacts and location is important because ..."") {
             @Override
-            public void granted() {
+            public void granted(String permission) {
                 // method to execute when permission is allowed
+                 if(permission.equals(Manifest.permission.WRITE_CONTACTS)){
+                    // method to execute when permission is WRITE_CONTACTS
+                 }
+                 else if(permission.equals(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    // // method to execute when permission is ACCESS_FINE_LOCATION
+                 }
+                
             }
 
         });
@@ -51,7 +59,7 @@ public class MainActivity extends MarshmallowActivity {
         MarshmallowPermission permission = new MarshmallowPermission(this, Manifest.permission.CALL_PHONE,
                 CODE_CALL_PHONE,true,"Access callphone is importante because ...") {
             @Override
-            public void granted() {
+            public void granted(String permission) {
 
             }
         };
