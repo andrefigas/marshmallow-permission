@@ -35,7 +35,7 @@ public abstract class MarshmallowActivity  extends AppCompatActivity {
 
         }
     }
-
+    @Override
     public void onRequestPermissionsResult (int requestCode, String[] permissions, int[] grantResults){
 
         p.onRequestPermissionsResult(requestCode, permissions, grantResults);

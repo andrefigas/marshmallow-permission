@@ -109,7 +109,10 @@ public abstract class MarshmallowPermission {
             }
 
             if(granted){
-                //acesso permitido
+                for (String r : getPermissions()) {
+
+                    granted(r);
+                }
             }
             else{
                 boolean rationale = false;
