@@ -22,7 +22,6 @@ public abstract class MarshmallowActivity  extends AppCompatActivity {
     public void setCallbackPermission(MarshmallowPermission p){
         this.p = p;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-
             p.getPermission();
         }
         else{

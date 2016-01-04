@@ -24,7 +24,6 @@ public abstract class MarshmallowPermission {
     public MarshmallowPermission(AppCompatActivity activity,String[] permission,int requestCode, boolean[] required, String detail){
 
         if(permission.length== required.length) {
-
             this.activity = activity;
             this.required = required;
             this.requestCode = requestCode;
